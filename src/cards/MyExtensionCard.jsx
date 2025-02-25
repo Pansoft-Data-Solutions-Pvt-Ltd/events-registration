@@ -848,9 +848,9 @@ setCurrentBannerId(bannerId);
 
   return (
     <Box className={classes.container}>
-      <img 
-        src="https://images.collegexpress.com/article/Exploring-Extracurricular-Activities-in-College-How-to-Find-the-Best-Opportunities.jpg" 
-        alt="Events Header" 
+      
+        <img src="https://images.stockcake.com/public/7/7/5/7755df8a-0677-4414-873f-f7d974f1ba1a_medium/online-registration-process-stockcake.jpg" 
+        alt="Events Header"
         className={classes.headerImage}
       />
       
@@ -862,7 +862,7 @@ setCurrentBannerId(bannerId);
         // Display error message if there is an error
         <Box className={classes.eventList}>
           <Typography className={classes.listHeader}>
-            Student Clubs and Activities
+            Registered Events
           </Typography>
           <Typography color="error" style={{ padding: '16px 0' }}>
             {error}
