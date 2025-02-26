@@ -18,36 +18,43 @@ import PropTypes from 'prop-types';
 Modal.setAppElement('#root');
 
 const styles = () => ({
+  globalText: {
+    fontFamily: 'Roboto, sans-serif', // Change this to your desired font
+  },
   container: {
     maxWidth: '900px',
     margin: '0 auto',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   headerImage: {
     width: '100%',
-    height: '160px', // Set a fixed height for the header image
+    height: '100px',
     objectFit: 'cover',
     borderTopLeftRadius: '4px',
     borderTopRightRadius: '4px',
     marginBottom: spacing40
   },
   header: {
-    backgroundColor: '#2596be',
+    backgroundColor: '#026BC8',
     padding: spacing40,
     borderTopLeftRadius: '4px',
     borderTopRightRadius: '4px',
-    marginBottom: spacing40
+    marginBottom: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   headerText: {
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: 'Roboto, sans-serif'
   },
   card: {
-    marginBottom: '2px', // Reduced from 4px
+    marginBottom: '2px',
     backgroundColor: 'transparent',
     borderBottom: '1px solid #e0e0e0',
     boxShadow: 'none',
     borderRadius: '0',
+    fontFamily: 'Roboto, sans-serif',
     '&:hover': {
       backgroundColor: '#f8f9fa',
     }
@@ -60,15 +67,17 @@ const styles = () => ({
     marginTop: spacing40,
     gap: spacing40,
     backgroundColor: 'white',
+    fontFamily: 'Roboto, sans-serif',
     '& button': {
-      backgroundColor: '#2596be',
+      backgroundColor: '#026BC8',
       color: 'white',
       fontWeight: 'bold',
       textTransform: 'uppercase',
       padding: '10px 20px',
       borderRadius: '4px',
       fontSize: '14px',
-      border: '2px solid #2596be',
+      border: '2px solid #026BC8',
+      fontFamily: 'Roboto, sans-serif',
       '&:hover': {
         backgroundColor: '#4343A1',
         color: 'white'
@@ -79,7 +88,8 @@ const styles = () => ({
   
   noEvents: {
     textAlign: 'center',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   modalCard: {
     marginBottom: spacing40,
@@ -87,11 +97,13 @@ const styles = () => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   eventInfo: {
     flexGrow: 1,
-    minWidth: '70%'
+    minWidth: '70%',
+    fontFamily: 'Roboto, sans-serif'
   },
   viewDetailsButton: {
     minWidth: '50px',
@@ -102,23 +114,24 @@ const styles = () => ({
     color: 'white',
     borderRadius: '4px',
     textTransform: 'uppercase',
+    fontFamily: 'Roboto, sans-serif',
     '&:hover': {
       backgroundColor: '#4F46E5'
     }
   },
-
   eventName: {
     fontSize: '14px',
     color: '#1F2937',
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    fontFamily: 'Roboto, sans-serif'
   },
-  
   modalCardContent: {
     flex: 1,
     marginRight: spacing40
   },
   detailsContainer: {
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   detailsRow: {
     display: 'flex',
@@ -128,28 +141,34 @@ const styles = () => ({
   },
   detailsLabel: {
     width: '150px',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: 'Roboto, sans-serif'
   },
   detailsValue: {
-    flex: 1
+    flex: 1,
+    fontFamily: 'Roboto, sans-serif'
   },
   loadingText: {
     textAlign: 'center',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   errorText: {
     color: 'red',
     textAlign: 'center',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   successModal: {
     textAlign: 'center',
-    padding: spacing40
+    padding: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   successIcon: {
     color: '#4CAF50',
     fontSize: '48px',
-    marginBottom: spacing40
+    marginBottom: spacing40,
+    fontFamily: 'Roboto, sans-serif'
   },
   registeredBadge: {
     backgroundColor: '#4CAF50',
@@ -192,9 +211,10 @@ const styles = () => ({
   
   mainHeader: {
     marginBottom: spacing40,
-    backgroundColor: '#2596be',
+    backgroundColor: '#026BC8',
     padding: spacing40,
-    borderRadius: '4px'
+    borderRadius: '4px',
+    fontFamily: 'Roboto, sans-serif'
   },
   iconButton: {
     padding: '4px',
@@ -213,6 +233,7 @@ const styles = () => ({
     borderRadius: '8px',
     boxShadow: '0 1px 3px rgba(0,0,0,0.12)',
     padding: '16px',
+    fontFamily: 'Roboto, sans-serif'
   },
   eventRow: {
     display: 'flex',
@@ -220,6 +241,7 @@ const styles = () => ({
     alignItems: 'center',
     padding: '8px 0',
     borderBottom: '1px solid #E5E7EB',
+    fontFamily: 'Roboto, sans-serif',
     '&:last-child': {
       borderBottom: 'none'
     }
@@ -228,12 +250,14 @@ const styles = () => ({
     fontSize: '16px',
     fontWeight: 'bold',
     color: '#111827',
-    marginBottom: '16px'
+    marginBottom: '16px',
+    fontFamily: 'Roboto, sans-serif'
   },
   subHeader: {
     fontSize: '14px',
     color: '#6B7280',
-    marginBottom: '16px'
+    marginBottom: '16px',
+    fontFamily: 'Roboto, sans-serif'
   }
 });
 
@@ -275,13 +299,15 @@ const RegisteredEvents = ({ classes }) => {
   const [selectedEventDetails, setSelectedEventDetails] = useState(null);
   const [isLoadingDetails, setIsLoadingDetails] = useState(false);
   const [detailsError, setDetailsError] = useState(null);
-  //const [registeredEventIds, setRegisteredEventIds] = useState([]);
+  const [, setRegisteredEventIds] = useState([]);
   const [successModalIsOpen, setSuccessModalIsOpen] = useState(false);
   const [registeredEventDetails, setRegisteredEventDetails] = useState(null);
   const [userRegisteredEvents, setUserRegisteredEvents] = useState([]);
   const [currentBannerId, setCurrentBannerId] = useState(null);
   const [errorModalOpen, setErrorModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [, setIsUnregistering] = useState(false);
+  const [, setUnregisterError] = useState(null);
 
   //const [currentUserId, setCurrentUserId] = useState(null);
   const filteredEvents = events.filter(event => {
@@ -295,7 +321,7 @@ const RegisteredEvents = ({ classes }) => {
     // Check if the event has available capacity
     const hasCapacity = event.registrantGuestLimit > 0;
     
-    return year > 2000 && hasCapacity;
+    return year > 2020 && hasCapacity;
   });
 
   const formatTime = (timeString) => {
@@ -578,6 +604,99 @@ setCurrentBannerId(bannerId);
     });
   };
 
+  const handleUnregister = async (eventId) => {
+    setIsUnregistering(true);
+    setUnregisterError(null);
+
+    try {
+        // Get authentication token
+        const authResponse = await fetch(`${TenantUrl}/auth`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${API_KEY}`,
+                'Accept': 'application/json'
+            }
+        });
+
+        if (!authResponse.ok) throw new Error('Authentication failed');
+        const token = await authResponse.text();
+
+        // Find the registration by matching both event reference number and registrant ID
+        const registration = userRegisteredEvents.find(reg => 
+            reg.functionDescription === selectedEventDetails.functionDescription && 
+            reg.registrantId === currentBannerId
+        );
+
+        if (!registration) {
+            console.error("Registration not found for:", selectedEventDetails.functionDescription, "with bannerId:", currentBannerId);
+            console.log("Available registrations:", userRegisteredEvents);
+            throw new Error('Registration not found');
+        }
+
+        console.log("Found registration to unregister:", registration);
+
+        // Construct updated data according to API schema
+        const updateData = {
+            id: registration.id,
+            eventReferenceNumber: registration.eventReferenceNumber,
+            function: registration.function,
+            functionDescription: selectedEventDetails.functionDescription,
+            registrantId: registration.registrantId,
+            response: "CANCEL",  // Fix: Changed "DECLINE" → "CANCEL"
+            responseEnteredOn: new Date().toISOString().split('T')[0], // Fix: Ensure correct date format
+            feeStatus: "PAID",  
+            addressType: "PR",  
+            nameTagName: registration.nameTagName || userName,
+            placeCardName: registration.placeCardName || userName,
+            ticketsRequested: "1",
+            menu: "VEGETARIAN",  
+            registrantAttendedIndicator: false,
+            adminComment: registration.adminComment || "",
+            registrantComment: registration.registrantComment || ""
+        };
+
+        console.log("Sending unregister data:", JSON.stringify(updateData, null, 2));
+
+        const unregisterResponse = await fetch(`${TenantUrl}/api/event-function-attendance-details/${registration.id}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(updateData)
+        });
+
+        if (!unregisterResponse.ok) {
+            const errorData = await unregisterResponse.json();
+            throw new Error(`Failed to unregister: ${JSON.stringify(errorData)}`);
+        }
+
+        // Update local state
+        setUserRegisteredEvents(prev => prev.filter(event => event.id !== registration.id));
+        setRegisteredEventIds(prev => prev.filter(id => id !== eventId));
+        setDetailsModalIsOpen(false);
+
+        // Show success message
+        setSuccessModalIsOpen(true);
+        setRegisteredEventDetails({
+            ...selectedEventDetails,
+            isUnregistered: true
+        });
+
+    } catch (err) {
+        console.error('Unregistration error:', err);
+        setUnregisterError(err.message);
+
+        // Show error modal
+        setErrorMessage(`Unregistration failed: ${err.message}`);
+        setErrorModalOpen(true);
+    } finally {
+        setIsUnregistering(false);
+    }
+};
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -854,20 +973,16 @@ setCurrentBannerId(bannerId);
         className={classes.headerImage}
       />
       
-      <Typography variant="h4" align="center" style={{ marginBottom: '20px' }}>
-        Hello {userName}
-      </Typography>
-
       {error ? (
         // Display error message if there is an error
         <Box className={classes.eventList}>
-          <Typography className={classes.listHeader}>
+          <Typography className={'${classes.listHeader} ${classes.globalText}'}>
             Registered Events
           </Typography>
-          <Typography color="error" style={{ padding: '16px 0' }}>
+          <Typography color="error" style={{ padding: '10px 0' }}>
             {error}
           </Typography>
-          <Box className={classes.buttonContainer}>
+          <Box className={'${classes.buttonContainer} ${classes.globalText}'}>
             <Button 
               color="primary"
               variant="contained"
@@ -890,24 +1005,34 @@ setCurrentBannerId(bannerId);
                 {event.functionDescription || "Event Name"}
               </Typography>
               <IconButton
-                onClick={(e) => handleViewDetails(event, e)}
-                className={classes.iconButton}
-                size="small"
-              >
-                <svg 
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="white"
-                  stroke="#2596be"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-              </IconButton>
+    onClick={(e) => handleViewDetails(event, e)}
+    className={classes.iconButton}
+    size="small"
+    style={{ 
+        padding: '6px',
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        border: '1px solid #ffffff', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}
+>
+    <svg 
+        width="20" height="20" viewBox="0 0 24 24"
+        fill="none" xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M4 12h16M14 6l6 6-6 6" 
+              stroke="#026BC8" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"/>
+    </svg>
+</IconButton>
+
+
+
+
             </div>
           ))}
         </Box>
@@ -926,17 +1051,52 @@ setCurrentBannerId(bannerId);
       <Modal
   isOpen={modalIsOpen}
   onRequestClose={handleCloseModal}
-  style={modalStyles}
+  style={{
+    overlay: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',
+      zIndex: 1000
+    },
+    content: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      transform: 'translate(-50%, -50%)',
+      width: '50%', // Reduced width
+      maxWidth: '600px', // Reduced max width
+      backgroundColor: 'white',
+      borderRadius: '8px',
+      padding: '16px', // Adjusted padding
+      border: 'none',
+      outline: 'none',
+      maxHeight: '75vh', // Reduced max height to avoid excessive scrolling
+      overflowY: 'auto'
+    }
+  }}
   contentLabel="Registered Events Modal"
   shouldCloseOnOverlayClick={true}
   shouldCloseOnEsc={true}
 >
+
   <Box className={classes.header}>
     <Typography variant="h2" className={classes.headerText}>
       Explore Events
     </Typography>
     <IconButton 
-      style={{ position: 'absolute', top: '10px', right: '10px', color: 'white', backgroundColor: 'transparent', zIndex: 10 }} 
+      style={{ 
+        position: 'absolute', 
+        top: '10px', 
+        right: '10px', 
+        zIndex: 9999, 
+        backgroundColor: 'transparent', 
+        color: 'white',
+      }}  
       onClick={() => setModalIsOpen(false)}
     >
       <Close />
@@ -956,35 +1116,43 @@ setCurrentBannerId(bannerId);
       .map((event, index) => (
         <Card key={index} className={classes.modalCard} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '10px', padding: '16px' }}>
           <Box className={classes.modalCardContent} style={{ flexGrow: 1, minWidth: '70%' }}>
-            <Typography variant="h5">
+          <Typography variant="h5" style={{ fontWeight: 'normal' }}>
               <strong>{event.functionDescription || "Event Name"}</strong>
             </Typography>
             
-            <Typography variant="body2" style={{ fontWeight: 'bold' }}>
+            <Typography variant="body2" >
               Due Date: {event.scheduleDetails?.[0]?.meetingStartOn || "Date not available"}
             </Typography>
           </Box>
           <div className={classes.iconWrapper}>
                   <Tooltip title="View Details">
-                    <IconButton
-                      onClick={(e) => handleViewDetails(event, e)}
-                      className={classes.iconButton}
-                      size="small"
-                    >
-                      <svg 
-                        width="18" // Slightly smaller icon
-                        height="18" 
-                        viewBox="0 0 24 24" 
-                        fill="white" // White fill
-                        stroke="#2596be" // Blue outline (matching your theme color)
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      >
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                        <circle cx="12" cy="12" r="3"/>
-                      </svg>
-                    </IconButton>
+                  <IconButton
+    onClick={(e) => handleViewDetails(event, e)}
+    className={classes.iconButton}
+    size="small"
+    style={{ 
+        padding: '6px',
+        borderRadius: '50%',
+        backgroundColor: 'white',
+        border: '1px solid #ffffff', 
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }}
+>
+    <svg 
+        width="20" height="20" viewBox="0 0 24 24"
+        fill="none" xmlns="http://www.w3.org/2000/svg"
+    >
+        <path d="M4 12h16M14 6l6 6-6 6" 
+              stroke="#026BC8" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"/>
+    </svg>
+</IconButton>
+
+
                   </Tooltip>
                 </div>
         </Card>
@@ -992,7 +1160,7 @@ setCurrentBannerId(bannerId);
 
     {filteredEvents.filter(event => !userRegisteredEvents.some(reg => reg.functionDescription === event.functionDescription)).length === 0 && (
       <Typography variant="h6" style={{ textAlign: 'center', padding: spacing40 }}>
-        No new events available for registration
+       
       </Typography>
     )}
 
@@ -1022,7 +1190,14 @@ setCurrentBannerId(bannerId);
           </Typography>
           <IconButton 
           className={classes.closeButton} 
-          style={{ position: 'absolute', top: '10px', right: '10px', color: 'white', backgroundColor: 'transparent', zIndex: 10 }} 
+          style={{ 
+            position: 'absolute', 
+            top: '10px', 
+            right: '10px', 
+            zIndex: 9999, 
+            backgroundColor: 'transparent', 
+            color: 'white',
+          }}  
           onClick={() => setDetailsModalIsOpen(false)}
         >
           <Close />
@@ -1042,7 +1217,7 @@ setCurrentBannerId(bannerId);
             <>
               <Box className={classes.detailsRow}>
   <Typography className={classes.detailsLabel}>Event ID:</Typography>
-  <Typography className={classes.detailsValue}>
+  <Typography className={classes.detailsValue} align="left">
     {selectedEventDetails.eventReferenceNumber}
   </Typography>
   <Typography className={classes.detailsLabel} style={{ marginLeft: '20px' }}>Registration Status:</Typography>
@@ -1103,21 +1278,23 @@ setCurrentBannerId(bannerId);
           
 
           <Box className={classes.buttonContainer}>
+          {isEventRegistered(selectedEventDetails) ? (
+  <Button
+    color="secondary"
+    variant="contained"
+    onClick={() => handleUnregister(selectedEventDetails.eventReferenceNumber)}
+  >
+    Unregister
+  </Button>
+) : (
   <Button 
     color="primary"
     variant="contained"
     onClick={handleRegister}
-    disabled={isEventRegistered(selectedEventDetails)}
   >
     Register
   </Button>
-  <Button
-    color="secondary"
-    variant="contained"
-    onClick={() => console.log('Unregister button clicked')}
-  >
-    Unregister
-  </Button>
+)}
   <Button
     color="secondary"
     variant="contained"
@@ -1141,7 +1318,14 @@ setCurrentBannerId(bannerId);
       Registration Status
     </Typography>
     <IconButton 
-      style={{ position: 'absolute', top: '10px', right: '10px', color: 'white', backgroundColor: 'transparent', zIndex: 10 }} 
+      style={{ 
+        position: 'absolute', 
+        top: '10px', 
+        right: '10px', 
+        zIndex: 9999, 
+        backgroundColor: 'transparent', 
+        color: 'white',
+      }}  
       onClick={() => setErrorModalOpen(false)}
     >
       <Close />
@@ -1207,10 +1391,17 @@ setCurrentBannerId(bannerId);
   >
     <Box className={classes.header}>
     <Typography variant="h2" className={classes.headerText}>
-  Registration Successful
+  {registeredEventDetails?.isUnregistered ? 'Unregistration Successful' : 'Registration Successful'}
 </Typography>
       <IconButton 
-        className={classes.closeButton} 
+        style={{ 
+          position: 'absolute', 
+          top: '10px', 
+          right: '10px', 
+          zIndex: 9999, 
+          backgroundColor: 'transparent', 
+          color: 'white',
+        }}  
         onClick={handleCloseSuccessModal}
       >
         <Close />
@@ -1219,32 +1410,34 @@ setCurrentBannerId(bannerId);
 
     <Box className={classes.successModal}>
     <Typography variant="h4" style={{ marginBottom: spacing40 }}>
-  Congratulations! You have successfully registered for the event!
+  {registeredEventDetails?.isUnregistered 
+    ? 'You have successfully unregistered from the event.' 
+    : 'Congratulations! You have successfully registered for the event!'}
 </Typography>
 
           {registeredEventDetails && (
             <Box className={classes.detailsContainer}>
               <Box className={classes.detailsRow}>
                 <Typography className={classes.detailsLabel}>Event Name:</Typography>
-                <Typography className={classes.detailsValue}>
+                <Typography className={classes.detailsValue} align="left">
                 {selectedEventDetails.functionDescription}
                 </Typography>
               </Box>
               <Box className={classes.detailsRow}>
                 <Typography className={classes.detailsLabel}>Description:</Typography>
-                <Typography className={classes.detailsValue}>
+                <Typography className={classes.detailsValue} align="left">
                   {registeredEventDetails.functionDescription}
                 </Typography>
               </Box>
               <Box className={classes.detailsRow}>
                 <Typography className={classes.detailsLabel}>Location:</Typography>
-                <Typography className={classes.detailsValue}>
+                <Typography className={classes.detailsValue} align="left">
                 {selectedEventDetails.scheduleDetails?.[0]?.meetingRoomDescription || "Meeting Room 111"}
                 </Typography>
               </Box>
               <Box className={classes.detailsRow}>
-  <Typography className={classes.detailsLabel}>Date & Time:</Typography>
-  <Typography className={classes.detailsValue}>
+  <Typography className={classes.detailsLabel} align="left">Date & Time:</Typography>
+  <Typography className={classes.detailsValue} align="left">
     {(() => {
       const scheduleDetails = selectedEventDetails?.scheduleDetails?.[0];
       const formattedDate = formatDate(scheduleDetails?.meetingStartOn);
